@@ -1,4 +1,13 @@
 n = int(input())
+a, cnt = 1, 1
+while n > a:
+  a += 6*cnt
+  cnt += 1
+print(cnt)
+
+
+'''
+n = int(input())
 k = 2
 ak_ = 1
 
@@ -13,4 +22,4 @@ else:
       break
     ak_ = ak
     k += 1
-  
+'''
