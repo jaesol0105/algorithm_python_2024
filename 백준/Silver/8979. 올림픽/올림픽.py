@@ -10,9 +10,10 @@ for _ in range(n):
 
 rank = sorted(rank, reverse=True, key = lambda x:(x[0],x[1],x[2]))
 
-tmp = [0, rank[0][0:3]]
-for i in range(1,n):
-  if rank[i][3] == k:
-    print(tmp[0]+1)
-  if tmp[1] != rank[i][0:3]:
-    tmp = [i, rank[i][0:3]]
+tmp_rank = 1
+for i in range(n):
+  if rank[i][3] == k: # 국가번호
+    print(tmp_rank)
+    break
+  if rank[i][0:3] != rank[i+1][0:3]:
+    tmp_rank = i+2
