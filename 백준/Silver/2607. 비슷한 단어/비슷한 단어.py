@@ -1,24 +1,16 @@
-from collections import defaultdict
-
 N = int(input())
-first_word = list(input())
-first_word_cnt = defaultdict(int)
-for c in first_word:
-    first_word_cnt[c] += 1
-
+first_word = input()
 result = 0
-for _ in range(N-1):
-    word = list(input())
-    if abs(len(word)-len(first_word)) <= 1:
-        word_cnt = defaultdict(int)
-        for c in word:
-            word_cnt[c] += 1
-        flag = 0
-        for x in range(ord('A'), ord('Z')+1):
-            if first_word_cnt[chr(x)] != word_cnt[chr(x)]:
-                flag += abs(first_word_cnt[chr(x)] - word_cnt[chr(x)])
 
-        if flag <= 2:
-            result += 1
-
+for _ in range(N - 1):
+    word = input()
+    cnt = 0
+    for c in first_word:
+        if c in word:
+            word = word.replace(c,'',1)
+        else:
+            cnt += 1 # fist_word의 남은 글자
+    if len(word) < 2 and cnt < 2: # word의 남은 글자
+        result += 1
+        
 print(result)
