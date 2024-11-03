@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 p, m = list(map(int,input().split()))
 q = []
 for _ in range(p):
