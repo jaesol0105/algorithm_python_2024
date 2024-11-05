@@ -4,10 +4,14 @@ input = sys.stdin.readline
 N = int(input())
 hq = []
 for _ in range(N):
-    for n in list(map(int,input().split())):
-        if len(hq) < N:
+    nums = list(map(int, input().split()))
+    if not hq:
+        for n in nums:
             heapq.heappush(hq, n)
-        elif hq[0] < n:
-            heapq.heappop(hq)
-            heapq.heappush(hq, n)
+    else:
+        for n in nums:
+            if hq[0] < n:
+                heapq.heappush(hq, n)
+                heapq.heappop(hq)
+                
 print(heapq.heappop(hq))
